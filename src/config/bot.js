@@ -421,13 +421,13 @@ export const botConfig = {
   // GENERIC BOT MESSAGES
   // =========================
   messages: {
-    noPermission: "You do not have permission to use this command.",
+    noPermission: "No tienes permisos para usar el comando.",
     cooldownActive: "Please wait {time} before using this command again.",
-    errorOccurred: "An error occurred while executing this command.",
+    errorOccurred: "Hubo un error al ejecutar el comando.",
     missingPermissions:
       "I am missing required permissions to perform this action.",
-    commandDisabled: "This command has been disabled.",
-    maintenanceMode: "The bot is currently in maintenance mode.",
+    commandDisabled: "Comando desactivado.",
+    maintenanceMode: "🛠️Bot en Mantenimiento🛠️🛠️.",
   },
 
   // =========================
