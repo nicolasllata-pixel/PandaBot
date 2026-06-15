@@ -56,7 +56,7 @@ export async function getUserTicketCount(guildId, userId) {
       service: 'ticketService',
       operation: 'getUserTicketCount',
       message: 'Ticket operation failed: getUserTicketCount',
-      userMessage: 'Failed to count open tickets.',
+      userMessage: 'Hubo un error al abrir el ticket.',
       context: { guildId, userId }
     });
     logger.error('Error counting user tickets:', {
@@ -80,7 +80,7 @@ export async function createTicket(guild, member, categoryId, reason = 'No reaso
     if (currentTicketCount >= maxTicketsPerUser) {
       return {
         success: false,
-        error: `You have reached the maximum number of open tickets (${maxTicketsPerUser}). Please close your existing tickets before creating a new one.`
+        error: `Has conseguido el maximo de tickets disponibles (${maxTicketsPerUser}). Cierra uno para abrir otro.`
       };
     }
     
@@ -174,17 +174,17 @@ export async function createTicket(guild, member, categoryId, reason = 'No reaso
     const row = new ActionRowBuilder().addComponents(
       new ButtonBuilder()
         .setCustomId('ticket_close')
-        .setLabel('Close Ticket')
+        .setLabel('Cerrar Ticket')
         .setStyle(ButtonStyle.Danger)
         .setEmoji('🔒'),
       new ButtonBuilder()
         .setCustomId('ticket_claim')
-        .setLabel('Claim')
+        .setLabel('Reclamar')
         .setStyle(ButtonStyle.Primary)
         .setEmoji('🙋'),
       new ButtonBuilder()
         .setCustomId('ticket_pin')
-        .setLabel('Pin')
+        .setLabel('Fijar')
         .setStyle(ButtonStyle.Secondary)
         .setEmoji('📌')
     );
@@ -297,8 +297,8 @@ export async function closeTicket(channel, closer, reason = 'No reason provided'
         const ticketCreator = await channel.client.users.fetch(ticketData.userId).catch(() => null);
         if (ticketCreator) {
           const dmEmbed = createEmbed({
-            title: '🎫 Your Ticket Has Been Closed',
-            description: `Your ticket **${channel.name}** has been closed.\n\n**Reason:** ${reason}\n**Closed by:** ${closer.tag}\n**Closed at:** <t:${Math.floor(Date.now() / 1000)}:F>\n\nThank you for using our support system! If you have any further questions, feel free to create a new ticket.`,
+            title: '🎫 Su ticket ha sido cerrado',
+            description: `Su ticket **${channel.name}** fue cerrado.\n\n**Razón:** ${reason}\n**por:** ${closer.tag}\n**Closed at:** <t:${Math.floor(Date.now() / 1000)}:F>\n\nGracias por usar nuestro soporte.`,
             color: '#e74c3c',
             footer: { text: `Ticket ID: ${ticketData.id}` }
           });
