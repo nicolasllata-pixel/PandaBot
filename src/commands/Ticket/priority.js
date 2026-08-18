@@ -9,19 +9,19 @@ import { updateTicketPriority } from '../../services/ticket.js';
 
 export default {
     data: new SlashCommandBuilder()
-        .setName("priority")
-        .setDescription("Sets the priority level for the current support ticket.")
+        .setName("proridad")
+        .setDescription("Pon la proridad del ticket.")
         .addStringOption((option) =>
             option
-                .setName("level")
-                .setDescription("The priority level for the ticket.")
+                .setName("nivel")
+                .setDescription("Nivel de proridad del ticket.")
                 .setRequired(true)
                 .addChoices(
-                    { name: "🔴 Urgent", value: "urgent" },
-                    { name: "🟠 High", value: "high" },
-                    { name: "🟡 Medium", value: "medium" },
-                    { name: "🟢 Low", value: "low" },
-                    { name: "⚪ None", value: "none" },
+                    { name: "🔴 Urgente", value: "urgent" },
+                    { name: "🟠 Alto", value: "high" },
+                    { name: "🟡 Medio", value: "medium" },
+                    { name: "🟢 Bajo", value: "low" },
+                    { name: "⚪ Nada", value: "none" },
                 ),
             )
         .setDMPermission(false),
