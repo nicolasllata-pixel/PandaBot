@@ -5,11 +5,11 @@ import { getColor } from '../../config/bot.js';
 import { getGuildConfig } from '../../services/guildConfig.js';
 
 const STAR_LABELS = {
-    '1': '⭐ 1 — Poor',
-    '2': '⭐⭐ 2 — Below Average',
-    '3': '⭐⭐⭐ 3 — Average',
-    '4': '⭐⭐⭐⭐ 4 — Good',
-    '5': '⭐⭐⭐⭐⭐ 5 — Excellent',
+    '1': '⭐ 1 — Malo',
+    '2': '⭐⭐ 2 — Mal',
+    '3': '⭐⭐⭐ 3 — Medio',
+    '4': '⭐⭐⭐⭐ 4 — Bueno',
+    '5': '⭐⭐⭐⭐⭐ 5 — Excelente',
 };
 
 export default {
